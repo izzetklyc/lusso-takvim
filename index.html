@@ -318,6 +318,64 @@ dialog::backdrop{background:rgba(20,18,14,.6)}
 .btn.kucuk{height:36px;padding:0 10px;font-size:12px}
 select.ain{padding:0 8px}
 
+/* Sözleşme formu bölümleri */
+.fsec{margin:6px 0 -6px;padding-top:12px;border-top:1px solid var(--line);font-family:var(--f-display);font-weight:500;font-size:13px;letter-spacing:.1em;color:var(--gold)}
+.akis{display:flex;flex-direction:column;gap:8px}
+.akrow{display:grid;grid-template-columns:78px minmax(0,1fr) 40px;gap:8px;align-items:center}
+.akrow input{width:100%;min-width:0;height:40px;padding:0 11px;border:1px solid var(--line-strong);border-radius:6px;background:var(--bg);font-size:14px}
+.akrow input:focus{outline:2px solid var(--gold-bright);outline-offset:0;border-color:var(--gold-bright)}
+.akrow input.aks{text-align:center;font-variant-numeric:tabular-nums}
+.akbtn{display:flex;flex-wrap:wrap;gap:8px;margin-top:-6px}
+textarea.ain.uzun{min-height:340px;font-size:13px}
+/* Ayarlar: menü ve sözleşme maddesi kartları */
+.mkart{display:flex;flex-direction:column;gap:10px;padding:12px;border:1px solid var(--line);border-radius:8px}
+.mbas{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:10px;align-items:end}
+.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mf{display:flex;flex-direction:column;gap:5px;min-width:0}
+.ain.guclu{font-weight:600}
+textarea.ain.oto{field-sizing:content;min-height:84px;max-height:70vh;line-height:1.5}
+@media (max-width:700px){.mgrid{grid-template-columns:minmax(0,1fr)}}
+
+/* Sözleşme çıktısı: ekranda görünmez ama ölçülebilsin diye sayfa dışında durur; yazdırırken tek görünen şey budur.
+   Bütün ölçüler .yic yazı boyutuna (em) bağlıdır; böylece 2 sayfaya sığdırmak için tek değer küçültülür. */
+#yazdir{position:absolute;left:-9999px;top:0;width:184mm;height:0;overflow:hidden;visibility:hidden}
+.yic{width:184mm;background:#fff;color:#000;font-family:var(--f-serif);font-size:10pt;line-height:1.28}
+.yic *{color:#000}
+.yust{display:flex;justify-content:space-between;align-items:flex-end;gap:2em;padding-bottom:.6em;border-bottom:.6pt solid #000;margin-bottom:.8em}
+.yust>div:first-child{flex:none}
+.ywm{font-family:var(--f-display);font-weight:600;font-size:1.6em;letter-spacing:.18em}
+.ybas{font-family:var(--f-ui);font-weight:600;font-size:.84em;letter-spacing:.14em;margin-top:.25em}
+.yadr{max-width:46%;font-family:var(--f-ui);font-size:.72em;line-height:1.4;text-align:right}
+.yic h3{margin:0 0 .4em;font-family:var(--f-ui);font-weight:700;font-size:.78em;letter-spacing:.14em;text-transform:uppercase}
+.yb{font-family:var(--f-ui);font-weight:700;font-size:.8em;letter-spacing:.12em}
+.yiki{display:grid;grid-template-columns:1.05fr 1fr;gap:2.2em;margin-bottom:.7em}
+.yiki h3:not(:first-child){margin-top:.8em}
+.ykunye{width:100%;border-collapse:collapse;font-size:.96em}
+.ykunye th{width:34%;padding:.12em .6em .12em 0;text-align:left;vertical-align:top;font-family:var(--f-ui);font-weight:500;font-size:.8em}
+.ykunye td{padding:.12em 0;vertical-align:top;border-bottom:.3pt dotted #888;overflow-wrap:anywhere}
+.yozel{margin:0 0 .7em;font-size:.94em}
+.ysart{padding-top:.6em;border-top:.6pt solid #000}
+.ymetin{font-size:.86em;line-height:1.25;text-align:justify}
+.ymetin h4{margin:.5em 0 .12em;font-family:var(--f-ui);font-weight:700;font-size:.86em;letter-spacing:.06em;break-after:avoid}
+.ymetin p{margin:0 0 .16em;orphans:2;widows:2}
+.yson{break-inside:avoid}
+.yson .beyan{margin:.7em 0 0;padding:.45em .7em;border:.6pt solid #000;font-size:.86em;line-height:1.26;text-align:justify}
+.yimza{display:grid;grid-template-columns:1fr 1fr;gap:3em;margin-top:1em;font-size:.94em}
+.yimza div{display:flex;flex-direction:column;gap:.8em}
+.ysenet{break-inside:avoid;margin-top:1.3em;padding-top:.9em;border-top:.6pt solid #000}
+.ybono{width:calc(100% - 1.4pt);margin:0 .7pt .7em;border-collapse:collapse;font-size:.92em}
+.ybono td{padding:.35em .6em;border:.6pt solid #000}
+.ygovde{margin:0 0 .9em;line-height:1.4;text-align:justify}
+.yborclu{display:grid;grid-template-columns:1.25fr 1fr;gap:.9em 2em;margin-top:.6em;font-size:.94em}
+
+@page{size:A4;margin:11mm 13mm 12mm}
+@media print{
+  html,body{background:#fff!important;color:#000!important}
+  .kapi,.shell,.toast,dialog,dialog::backdrop{display:none!important}
+  #yazdir{position:static;width:auto;height:auto;overflow:visible;visibility:visible}
+  .yic{width:auto}
+}
+
 @media (max-width:900px){
   .shell{grid-template-columns:minmax(0,1fr)}
   .side{position:static;min-height:0;gap:10px;padding:14px 16px 10px;border-right:0;border-bottom:1px solid var(--line-strong)}
@@ -344,6 +402,8 @@ select.ain{padding:0 8px}
   .dfoot .meta{flex-basis:100%}
   .dfoot .btn{flex:1 1 auto}
   .gunsal li{grid-template-columns:66px minmax(0,1fr);gap:8px}
+  .akrow{grid-template-columns:64px minmax(0,1fr) 40px}
+  .akrow input{font-size:16px}
   .arow{grid-template-columns:44px minmax(0,1fr) 84px;gap:8px}
   .arow.s2{grid-template-columns:64px minmax(0,1fr) minmax(0,1fr)}
   .hb{grid-template-columns:minmax(0,104px) minmax(0,1fr) auto}
@@ -447,6 +507,7 @@ select.ain{padding:0 8px}
 
 <dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
 <div class="toast" id="toast" role="status" hidden></div>
+<div id="yazdir" aria-hidden="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -471,9 +532,18 @@ var VARSAYILAN={
   seanslar:{gunduz:{ad:'Gündüz',saat:''},aksam:{ad:'Akşam',saat:''}},
   yogunGunler:[4,5,6],
   turler:['Düğün','Nişan','Kına','Sünnet','Nikâh','Toplantı / Konferans','Diğer'],
-  menuler:['Tavuk Sote','Tavuk Sarma','Düğün Kavurması','Hünkâr Beğendi','Serpme Kokteyl','Servis Kokteyl','Lusso Tabağı','Lusso Prestij'],
+  /* Menü içeriği Ayarlar'dan düzenlenir; sözleşmede menü seçilince bu alanlar kendiliğinden dolar */
+  menuler:['Tavuk Sote','Tavuk Sarma','Düğün Kavurması','Hünkâr Beğendi','Serpme Kokteyl','Servis Kokteyl','Lusso Tabağı','Lusso Prestij'].map(function(a){return {ad:a,baslangic:'',anaYemek:a,tatli:'',ikram:''};}),
+  baslangiclar:['Çorba','Ordövr tabağı','Çorba ve ordövr tabağı'],
+  tatlilar:['Yaş pasta','Dondurmalı pasta'],
+  akisSablonu:['Misafir karşılama','Gelin ve damadın salona girişi','İlk dans','Yemek servisi','Pasta töreni','Takı töreni','Kapanış'],
   sonOdemeGun:7,
-  dipNot:'Tutarlar KDV hariçtir. Ödemeler nakit, makbuz karşılığı Lusso kasasına alınır.'
+  dipNot:'Tutarlar KDV hariçtir. Ödemeler nakit, makbuz karşılığı Lusso kasasına alınır.',
+  /* Sözleşme çıktısı: başlık satırları, matbu maddeler ve senet metni Ayarlar'dan değiştirilebilir */
+  baslik:'Ovacık Mah. Kartaltepe Kent Ormanı Cad. 696. Sok. No:2 Keçiören / Ankara\nTel: 0312 578 04 04 · 0535 978 82 18\nYıldırım Beyazıt Vergi Dairesi · 6290476955',
+  sozlesmeMetni:"MADDE 1 — TARAFLAR, KONU VE KAPSAM\n1.1 İşbu sözleşme, LUSSO WEDDING (“LUSSO”) ile organizasyon bilgileri bölümünde yazılı Organizasyon Sahibi (“MÜŞTERİ”) arasında, belirtilen tarih, seans ve salonda organizasyon hizmeti verilmesi için düzenlenmiştir.\n1.2 Sözleşme yalnızca belirtilen salon içindir; müşteri'nin salon dışında tesis üzerinde hiçbir tasarrufu yoktur. Müşteri ve misafirleri diğer salonların müşterilerini rahatsız edemez; misafirlerin davranışlarından müşteri sorumludur. İŞLETMEYE DAVUL, ZURNA VB. DIŞARIDAN MÜZİSYEN GETİRİLEMEZ; getirilmesi halinde içeri alınmaz, bu nedenle indirim veya tazminat talep edilemez.\n1.3 İŞLETME KESİNLİKLE ALKOLSÜZDÜR; TESİS İÇİNDE VE DIŞ ALANLARINDA ALKOL KULLANIMI VE BULUNDURULMASI KESİNLİKLE YASAKTIR. Alkollü misafir içeri alınmaz; tespit edilmesi halinde organizasyon durdurulabilir, bu nedenle indirim veya tazminat talep edilemez.\nMADDE 2 — KİŞİ SAYISI, MASA KURALI VE BEDEL\n2.1 Sözleşme bedeli, kişi başı fiyat × garanti edilen kişi sayısıdır; daha az misafir gelmesi indirim sebebi olmaz. Masalar 10 kişiliktir; kişi sayısı kurulan masa düzenine göre belirlenir ve masa sayısı × 10 olarak yukarı yuvarlanır. Garanti sayının veya masa düzeninin üzerinde gelen misafirler organizasyon bitiminde LUSSO salon sorumlusunca tespit edilir, adisyon düzenlenir ve aynı gece kişi başı sözleşme fiyatından tahsil edilir; bu tespit kesin delildir, sonradan itiraz kabul edilmez.\nMADDE 3 — ÖDEME KOŞULLARI\n3.1 Kapora tutarı ve ödeme planı organizasyon bilgileri bölümünde belirtilir; kapora sözleşme anında ödenir. TÜM ÖDEMELER YALNIZCA NAKİT OLARAK LUSSO KASASINA YAPILIR VE MAKBUZ KARŞILIĞI TESLİM ALINIR; banka hesabına, üçüncü kişilere veya makbuzsuz yapılan ödemeler LUSSO’yu bağlamaz. Kalan bakiyenin tamamı, organizasyon tarihinden en geç 7 (yedi) gün önce garanti edilen kişi sayısı üzerinden ödenir.\n3.2 Kapora cayma bedeli niteliğindedir; Madde 4.1 hariç hiçbir surette iade edilmez, başka tarihe veya başka kişiye devredilemez.\n3.3 Organizasyon gecesi oluşan ekstra tüketimler, ilave masa ve kişi farkları, süre aşımı ve hasar bedelleri aynı gece nakit olarak ödenir. Aynı gece ödenmeyen tutarlar, ödeme gününe kadar resmi enflasyon (TÜİK TÜFE) farkı eklenerek tahsil edilir; LUSSO’nun yasal takip hakkı saklıdır. BAKİYESİ ORGANİZASYONDAN 7 GÜN ÖNCE ÖDENMEMİŞ ORGANİZASYONUN HAZIRLIĞINA BAŞLANMAZ; bu halde LUSSO başka bir ihbara gerek olmaksızın sözleşmeyi feshetmiş sayılır, kapora ve yapılmış ödemeler iade edilmez ve MÜŞTERİ bu nedenle hiçbir hak, indirim veya tazminat talep edemez.\n3.4 Kalan bakiye için MÜŞTERİ tarafından ayrıca bono (emre muharrer senet) düzenlenir. Bakiyenin süresinde ödenmesi halinde bono MÜŞTERİ’ye iade edilir.\n3.5 Ödemeler karşılığında yasal fatura düzenlenir. Sözleşmedeki tutarlara KDV dahil değildir; KDV ayrıca hesaplanır ve MÜŞTERİ tarafından ödenir.\nMADDE 4 — İPTAL, CAYMA VE TARİH DEĞİŞİKLİĞİ\n4.1 Sözleşme tarihinden itibaren 7 gün içinde yazılı olarak iptal edilen rezervasyonlarda kapora iade edilir. Bu süreden sonra yapılan iptallerde kapora iade edilmez.\n4.2 Kademeli iptal bedeli — organizasyon tarihine: 60–45 gün kala iptallerde toplam bedelin %50’si; 44–31 gün kala %75’i; 30 gün ve daha az kala veya organizasyon günü iptallerde %100’ü MÜŞTERİ tarafından ödenir. Bono bu bedelin teminatıdır.\n4.3 LUSSO’nun iptal edilen tarih ve salonu aynı bedelle başka bir müşteriye satması halinde, alınan kapora MÜŞTERİ’ye iade edilir; bunun dışında iade yapılmaz.\n4.4 Tarih değişikliği LUSSO’nun takdirinde ve müsaitliğe bağlıdır. Organizasyona 70 günden az süre kala talep edilen değişikliklerde kapora iade edilmez ve yeni tarihe mahsup edilmez.\n4.5 LUSSO, MÜŞTERİ’nin sözleşmeye aykırı davranması, ödeme yükümlülüklerini yerine getirmemesi veya organizasyonun güvenliğini tehlikeye sokması halinde sözleşmeyi tek taraflı feshedebilir; bu halde kapora ve yapılmış ödemeler iade edilmez.\nMADDE 5 — MÜZİK, SANATÇI VE SES DÜZENİ\n5.1 MÜŞTERİ’nin getirdiği sanatçı, orkestra, solist veya DJ yalnızca LUSSO yönetiminin ve LUSSO DJ’inin kontrolünde sahne alır; sahneye çıkış, süre, akış ve ekipman kullanımı LUSSO’nun talimatına tabidir. LUSSO ses ve ışık sistemi dışında sistem kurulamaz; ekipmana verilen zarar MÜŞTERİ tarafından ödenir. Talimatlara uymayan icracının performansı durdurulur, MÜŞTERİ bu nedenle hak talep edemez.\n5.2 HER SALONUN LUSSO TARAFINDAN BELİRLENMİŞ KENDİ SES (DESİBEL) SINIRI VARDIR; BU SINIR HİÇBİR SURETTE AŞILAMAZ VE LUSSO BUNA İZİN VERMEZ. Sınırı aşan sesi LUSSO DJ’i derhal kısar veya keser; bu nedenle indirim, tazminat veya ek süre talep edilemez. Komşu şikâyeti, kolluk müdahalesi veya idari para cezası doğuran her durumun sonucundan ve cezasından MÜŞTERİ sorumludur.\nMADDE 6 — FOTOĞRAF VE VİDEO\n6.1 Fotoğraf ve video çekimi sözleşme kapsamının tamamen dışındadır; LUSSO’nun bu hizmetle hiçbir ilgisi ve sorumluluğu yoktur, tüm sorumluluk MÜŞTERİ’nin anlaştığı fotoğrafçı/stüdyoya aittir. Dışarıdan çekim ekibinin girişi LUSSO’nun onayına bağlıdır.\n6.2 MÜŞTERİ, sözleşme imzalanırken aksini yazılı bildirmedikçe, organizasyona ait genel mekân çekimlerinin LUSSO tarafından tanıtım amacıyla kullanılmasına izin vermiş sayılır.\nMADDE 7 — İŞLETME KURALLARI VE SORUMLULUKLAR\n7.1 İşletme kesinlikle alkolsüzdür; dışarıdan alkol, yiyecek ve içecek getirilemez. Dışarıdan alkol getirilmesi halinde doğacak taşkınlıklardan ve kesilecek her cezadan MÜŞTERİ sorumludur.\n7.2 Havai fişek, meşale, kuru sıkı veya ateşli silah kullanımı yasaktır; aksi halde kesilecek cezayı MÜŞTERİ öder, failler kolluğa teslim edilir.\n7.3 Süsleme ve dekorasyon LUSSO’nun onayıyla ve anlaşmalı firmalarınca yapılır; duvar, tavan, zemin ve mobilyaya zarar verebilecek uygulamalar (çivi, yapıştırıcı, boya vb.) yasaktır.\n7.4 MÜŞTERİ, kendisinin ve misafirlerinin işletmeye, demirbaşlara, ekipmana ve üçüncü kişilere verdiği her zarardan sorumludur; hasar aynı gece tutanakla tespit edilip tahsil edilir. Kaybolan veya çalınan eşyalardan, otopark ve vale hizmetindeki araçlar ile içindekilerden LUSSO sorumlu değildir; çocukların gözetimi velilerine aittir.\n7.5 Kapalı alanlarda sigara içilmez. Asayişi bozan veya personele ya da misafirlere kötü muamelede bulunan kişileri LUSSO dışarı çıkarabilir; gerekli hallerde organizasyonu sonlandırabilir veya bitişi öne çekebilir, bu halde iade yapılmaz.\nMADDE 8 — SÜRE, PROGRAM VE BİLDİRİM SÜRELERİ\n8.1 Organizasyon, organizasyon bilgileri bölümünde yazılı saatler içinde tamamlanır. Bitiş saatinin aşılması halinde her başlayan saat için tarifedeki süre aşımı bedeli aynı gece tahsil edilir; LUSSO süre uzatımını kabul etmeyebilir.\n8.2 Süreler — organizasyon tarihinden önce: menü değişikliği ve prova en geç 15 gün; kesin kişi sayısı, masa düzeni ve oturma planı en geç 7 gün (yazılı olarak Salon Şefi’ne); dışarıdan sanatçı için yazılı onay en geç 7 gün; slayt, video vb. gösterim materyali en geç 7 gün önce uygun formatta teslim edilir. Süresinde bildirim yapılmazsa sözleşmedeki sayı ve düzen esas alınır, geç talepler kabul edilmez ve doğan aksaklıklardan LUSSO sorumlu değildir.\nMADDE 9 — MÜCBİR SEBEP\n9.1 Doğal afet, salgın, resmi yasak veya kısıtlama, genel elektrik-su kesintisi gibi tarafların kontrolü dışındaki hallerde organizasyon LUSSO’nun uygun göreceği ileri bir tarihe ertelenir ve kapora yeni tarihe aktarılır; LUSSO’dan tazminat talep edilemez.\nMADDE 10 — KİŞİSEL VERİLER, TEBLİGAT VE YETKİ\n10.1 MÜŞTERİ, paylaştığı kişisel verilerin 6698 sayılı KVKK uyarınca yalnızca organizasyon hizmeti, faturalandırma ve yasal yükümlülükler amacıyla işlenmesine muvafakat eder. Taraflar sözleşmedeki adreslerini tebligat adresi olarak kabul eder. Sözleşme; organizasyon bilgileri bölümü, işbu hükümler ve düzenlenen bono ile bir bütündür; tek nüsha LUSSO’da kalır, MÜŞTERİ’ye kopyası verilir.\n10.2 Her türlü uyuşmazlıkta ANKARA Mahkemeleri ve İcra Daireleri yetkilidir. LUSSO’nun ticari defter ve kayıtları, adisyon ve tespit tutanakları HMK gereğince kesin delil niteliğindedir.\nBEYAN: Organizasyon sahibi olarak işbu sözleşmenin tüm sayfalarını okuduğumu, anladığımı, tüm şartları kabul ettiğimi; sözleşmede yazılı olmayan hiçbir sözlü taahhüdün bulunmadığını ve sözleşmede yer alan bakiyeyi organizasyon tarihinden bir hafta önce ödeyeceğimi beyan ederim.",
+  senetMetni:'İşbu bono karşılığında LUSSO WEDDING veya emrine, yukarıda yazılı vadede ve ödeme yerinde yalnız {TUTAR} Türk Lirası’nı kayıtsız ve şartsız ödeyeceğim. Bedeli malen ahzolunmuştur. Protestodan muaftır.',
+  senetYer:'ANKARA'
 };
 var SEANS_SABIT={gunduz:{kod:'G',ic:'i-sun',sira:0},aksam:{kod:'A',ic:'i-moon',sira:1}};
 var AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
@@ -513,9 +583,49 @@ var cfg=clone(VARSAYILAN);
 function temizListe(a,yedek){
   if(!Array.isArray(a))return yedek.slice();
   var g={},o=[];
-  a.forEach(function(x){x=String(x==null?'':x).trim().slice(0,60);if(x&&!g[x]){g[x]=1;o.push(x);}});
+  a.forEach(function(x){x=String(x==null?'':x).trim().slice(0,80);if(x&&!g[x]){g[x]=1;o.push(x);}});
   return o;
 }
+/* Eski kayıtlarda menü yalnızca addı; o zaman ana yemek olarak menü adı alınır (önceki davranış). */
+function temizMenuler(a,yedek){
+  if(!Array.isArray(a))return clone(yedek);
+  var g={},o=[];
+  a.forEach(function(x){
+    var m=typeof x==='string'?{ad:x,anaYemek:x}:(x&&typeof x==='object'?x:{});
+    function al(k,n){return String(m[k]==null?'':m[k]).replace(/\s+/g,' ').trim().slice(0,n);}
+    var ad=al('ad',80);
+    if(!ad||g[ad])return;
+    g[ad]=1;
+    o.push({ad:ad,baslangic:al('baslangic',80),anaYemek:al('anaYemek',120),tatli:al('tatli',80),ikram:al('ikram',160)});
+  });
+  return o;
+}
+function menuAdlari(){return cfg.menuler.map(function(m){return m.ad;});}
+function menuOf(ad){for(var i=0;i<cfg.menuler.length;i++)if(cfg.menuler[i].ad===ad)return cfg.menuler[i];return null;}
+/* Sözleşme metni tek bir yazı olarak saklanır; Ayarlar'da madde madde düzenlenir. */
+function maddeAyir(t){
+  var o={giris:'',maddeler:[],beyan:''},g=[],son=null;
+  String(t||'').split(/\n+/).forEach(function(l){
+    l=l.trim();if(!l)return;
+    if(/^BEYAN\s*:/i.test(l)){o.beyan=l.replace(/^BEYAN\s*:/i,'').trim();return;}
+    if(/^MADDE\s/i.test(l)){son={baslik:l,metin:[]};o.maddeler.push(son);return;}
+    (son?son.metin:g).push(l);
+  });
+  o.giris=g.join('\n\n');
+  o.maddeler.forEach(function(m){m.metin=m.metin.join('\n\n');});
+  return o;
+}
+function maddeBirlestir(o){
+  var a=[];
+  function ekle(t){String(t||'').split(/\n+/).forEach(function(l){l=l.trim();if(l)a.push(l);});}
+  ekle(o.giris);
+  o.maddeler.forEach(function(m){var b=String(m.baslik||'').replace(/\s+/g,' ').trim();if(b)a.push(b);ekle(m.metin);});
+  var b=String(o.beyan||'').replace(/\s+/g,' ').trim();
+  if(b)a.push('BEYAN: '+b);
+  return a.join('\n');
+}
+var md=null,mdMetin=null;
+function maddeYaz(){draft.sozlesmeMetni=mdMetin=maddeBirlestir(md);}
 function normalize(raw){
   var c=clone(VARSAYILAN);
   if(!raw||typeof raw!=='object')return c;
@@ -536,9 +646,14 @@ function normalize(raw){
   });
   if(Array.isArray(raw.yogunGunler))c.yogunGunler=raw.yogunGunler.filter(function(x,i,a){return x===Math.round(x)&&x>=0&&x<=6&&a.indexOf(x)===i;}).sort();
   var t=temizListe(raw.turler,c.turler);if(t.length)c.turler=t;
-  if(Array.isArray(raw.menuler))c.menuler=temizListe(raw.menuler,c.menuler);
+  if(Array.isArray(raw.menuler))c.menuler=temizMenuler(raw.menuler,c.menuler);
   if(typeof raw.sonOdemeGun==='number'&&raw.sonOdemeGun>=0&&raw.sonOdemeGun<=90)c.sonOdemeGun=Math.round(raw.sonOdemeGun);
   if(typeof raw.dipNot==='string')c.dipNot=raw.dipNot.trim().slice(0,400);
+  ['baslangiclar','tatlilar','akisSablonu'].forEach(function(k){if(Array.isArray(raw[k]))c[k]=temizListe(raw[k],c[k]);});
+  if(typeof raw.baslik==='string')c.baslik=raw.baslik.trim().slice(0,500);
+  if(typeof raw.sozlesmeMetni==='string'&&raw.sozlesmeMetni.trim())c.sozlesmeMetni=raw.sozlesmeMetni.trim().slice(0,30000);
+  if(typeof raw.senetMetni==='string'&&raw.senetMetni.trim())c.senetMetni=raw.senetMetni.trim().slice(0,2000);
+  if(typeof raw.senetYer==='string'&&raw.senetYer.trim())c.senetYer=raw.senetYer.trim().slice(0,40);
   return c;
 }
 
@@ -822,6 +937,7 @@ function renderStats(){
 /* ---------- ayarlar (yalnızca yönetici) ---------- */
 function renderAyarlar(){
   var d=draft,h='';
+  if(!md||mdMetin!==d.sozlesmeMetni){md=maddeAyir(d.sozlesmeMetni);mdMetin=d.sozlesmeMetni;}
   h+='<section class="ablok"><h2>Salonlar</h2><p class="fine">Takvimde görünen ad ve renk. Kapasite girilirse, kişi sayısı aşıldığında sözleşme ekranı uyarır.</p>'+
      '<div class="arow h"><span>Renk</span><span>Salon adı</span><span>Kapasite (kişi)</span></div>';
   d.salonlar.forEach(function(s,i){
@@ -846,11 +962,26 @@ function renderAyarlar(){
   });
   h+='</div></section>';
 
-  [['turler','Organizasyon türleri','Sözleşme ekranındaki tür listesi.','Tür ekle'],
-   ['menuler','Menüler','Sözleşme ekranındaki menü listesi.','Menü ekle']].forEach(function(L){
-    h+='<section class="ablok"><h2>'+L[1]+'</h2><p class="fine">'+L[2]+' Listeden çıkarılan bir ad, daha önce yazılmış sözleşmelerde olduğu gibi kalır.</p>';
+  var eski=' Listeden çıkarılan bir ad, daha önce yazılmış sözleşmelerde olduğu gibi kalır.';
+  [['turler','Organizasyon türleri','Sözleşme ekranındaki tür listesi.'+eski,'Tür ekle'],
+   ['menuler'],
+   ['baslangiclar','Başlangıç seçenekleri','Menü detayındaki "Başlangıç" kutusunda öneri olarak çıkar; kutuya başka bir şey de yazılabilir.','Seçenek ekle'],
+   ['tatlilar','Tatlı seçenekleri','Menü detayındaki "Tatlı" kutusunda öneri olarak çıkar; kutuya başka bir şey de yazılabilir.','Seçenek ekle'],
+   ['akisSablonu','Program akışı şablonu','Sözleşme ekranında "Hazır akışı ekle" denince bu adımlar sırayla eklenir; saatleri her sözleşmede ayrıca yazılır.','Adım ekle']].forEach(function(L){
+    if(L[0]==='menuler'){
+      h+='<section class="ablok"><h2>Menüler</h2><p class="fine">Her menünün içeriğini buradan düzenleyin. Sözleşme ekranında menü seçilince başlangıç, ana yemek, tatlı ve diğer ikramlar bu içerikle kendiliğinden dolar; her sözleşmede ayrıca değiştirilebilir. Kaldırılan ya da adı değiştirilen bir menü, daha önce yazılmış sözleşmelerde olduğu gibi kalır.</p>';
+      d.menuler.forEach(function(m,i){
+        function al(k,lbl,max,ek){return '<label class="mf"><span class="albl">'+lbl+'</span><input type="text" class="ain" id="a-menu-'+i+'-'+k+'" data-p="menuler.'+i+'.'+k+'" maxlength="'+max+'"'+(ek||'')+' value="'+esc(m[k]||'')+'"></label>';}
+        h+='<div class="mkart"><div class="mbas"><label class="mf"><span class="albl">Menü adı</span><input type="text" class="ain guclu" id="a-menuler-'+i+'" data-p="menuler.'+i+'.ad" maxlength="80" value="'+esc(m.ad||'')+'"></label>'+
+           '<button type="button" class="sil" data-del="menuler.'+i+'" aria-label="'+esc(m.ad||'Menü')+' menüsünü kaldır">&times;</button></div>'+
+           '<div class="mgrid">'+al('baslangic','Başlangıç',80,' list="dl-a-baslangic"')+al('anaYemek','Ana yemek',120)+al('tatli','Tatlı',80,' list="dl-a-tatli"')+al('ikram','Diğer ikramlar',160)+'</div></div>';
+      });
+      h+=dlist('dl-a-baslangic',d.baslangiclar)+dlist('dl-a-tatli',d.tatlilar)+'<button type="button" class="ekle" data-add="menuler">+ Menü ekle</button></section>';
+      return;
+    }
+    h+='<section class="ablok"><h2>'+L[1]+'</h2><p class="fine">'+L[2]+'</p>';
     d[L[0]].forEach(function(x,i){
-      h+='<div class="arow l"><input type="text" class="ain" id="a-'+L[0]+'-'+i+'" data-p="'+L[0]+'.'+i+'" maxlength="60" value="'+esc(x)+'" aria-label="'+L[1]+' '+(i+1)+'">'+
+      h+='<div class="arow l"><input type="text" class="ain" id="a-'+L[0]+'-'+i+'" data-p="'+L[0]+'.'+i+'" maxlength="80" value="'+esc(x)+'" aria-label="'+L[1]+' '+(i+1)+'">'+
          '<button type="button" class="sil" data-del="'+L[0]+'.'+i+'" aria-label="'+esc(x||'Satır')+' satırını kaldır">&times;</button></div>';
     });
     h+='<button type="button" class="ekle" data-add="'+L[0]+'">+ '+L[3]+'</button></section>';
@@ -860,6 +991,29 @@ function renderAyarlar(){
      '<div class="akisa"><label class="albl" for="a-sonodeme">Son ödeme tarihi, organizasyondan</label><input type="text" class="ain num" id="a-sonodeme" data-p="sonOdemeGun" data-num inputmode="numeric" maxlength="2" value="'+d.sonOdemeGun+'"><span class="albl">gün önce</span></div>'+
      '<label class="albl" for="a-dipnot">Sözleşme ekranının altındaki not</label>'+
      '<textarea class="ain" id="a-dipnot" data-p="dipNot" maxlength="400">'+esc(d.dipNot)+'</textarea></section>';
+
+  h+='<section class="ablok"><h2>Sözleşme başlığı</h2>'+
+     '<p class="fine">Yazdırılan sözleşmenin sağ üstündeki satırlar. Program bilgileri sözleşmenin başına kendiliğinden gelir.</p>'+
+     '<label class="albl" for="a-baslik">Başlık satırları (adres, telefon)</label>'+
+     '<textarea class="ain" id="a-baslik" data-p="baslik" maxlength="500">'+esc(d.baslik)+'</textarea></section>';
+
+  h+='<section class="ablok"><h2>Sözleşme maddeleri</h2>'+
+     '<p class="fine">Sözleşmenin matbu şartları. Her madde ayrı kutudadır: metni düzeltebilir, madde ekleyebilir ya da kaldırabilirsiniz. Metin kutusunda her satır ayrı bir fıkra olarak basılır. Metin uzarsa çıktı 2 sayfada kalsın diye yazı kendiliğinden küçülür.</p>';
+  if(md.giris)h+='<label class="mf"><span class="albl">Giriş metni (maddelerden önce)</span><textarea class="ain oto" id="a-md-giris" data-md-giris>'+esc(md.giris)+'</textarea></label>';
+  md.maddeler.forEach(function(m,i){
+    h+='<div class="mkart"><div class="mbas"><label class="mf"><span class="albl">'+(i+1)+'. madde başlığı</span><input type="text" class="ain guclu" id="a-md-'+i+'-baslik" data-md="'+i+'" data-f="baslik" maxlength="160" value="'+esc(m.baslik)+'"></label>'+
+       '<button type="button" class="sil" data-mdel="'+i+'" aria-label="'+esc(m.baslik||'Madde')+' maddesini kaldır">&times;</button></div>'+
+       '<label class="mf"><span class="albl">Madde metni</span><textarea class="ain oto" id="a-md-'+i+'-metin" data-md="'+i+'" data-f="metin">'+esc(m.metin)+'</textarea></label></div>';
+  });
+  h+='<button type="button" class="ekle" id="a-madde-ekle">+ Madde ekle</button>'+
+     '<label class="mf"><span class="albl">Beyan (imzaların üstündeki kutu)</span><textarea class="ain oto" id="a-beyan" data-md-beyan>'+esc(md.beyan)+'</textarea></label>'+
+     '<div><button type="button" class="btn" id="a-ornek">Örnek çıktıyı gör</button> <span class="fine">Değişiklikleri kaydetmeden önce örnek bir sözleşme üzerinde görebilirsiniz.</span></div></section>';
+
+  h+='<section class="ablok"><h2>Senet</h2>'+
+     '<p class="fine">Kalan bakiyesi olan sözleşmelerde imzaların altına, sözleşmenin devamı olarak basılır. Tutar kalan bakiyeden, vade son ödeme tarihinden, düzenleme tarihi sözleşme imza tarihinden gelir. Metindeki {TUTAR} yerine tutar yazıyla konur.</p>'+
+     '<div class="akisa"><label class="albl" for="a-senetyer">Düzenleme ve ödeme yeri</label><input type="text" class="ain" id="a-senetyer" data-p="senetYer" maxlength="40" style="width:180px" value="'+esc(d.senetYer)+'"></div>'+
+     '<label class="albl" for="a-senetmetin">Senet metni</label>'+
+     '<textarea class="ain" id="a-senetmetin" data-p="senetMetni" maxlength="2000" style="min-height:110px">'+esc(d.senetMetni)+'</textarea></section>';
 
   h+='<div class="kbar"><span class="kd" id="a-durum"></span>'+
      '<button type="button" class="btn" id="a-geri">Değişiklikleri geri al</button>'+
@@ -884,7 +1038,17 @@ function ayarKaydet(){
   var d=clone(draft),hata='';
   d.salonlar.forEach(function(s){s.ad=String(s.ad||'').trim();if(!s.ad)hata='Salon adı boş bırakılamaz.';if(!(s.kapasite>0))s.kapasite=null;});
   ['gunduz','aksam'].forEach(function(k){d.seanslar[k].ad=String(d.seanslar[k].ad||'').trim();d.seanslar[k].saat=String(d.seanslar[k].saat||'').trim();if(!d.seanslar[k].ad)hata='Seans adı boş bırakılamaz.';});
-  d.turler=temizListe(d.turler,[]);d.menuler=temizListe(d.menuler,[]);
+  d.turler=temizListe(d.turler,[]);
+  draft.menuler.forEach(function(m){if(!String(m.ad||'').trim()&&(m.baslangic||m.anaYemek||m.tatli||m.ikram))hata='Menü adı boş bırakılamaz.';});
+  d.menuler=temizMenuler(d.menuler,[]);
+  if(md&&mdMetin===draft.sozlesmeMetni)md.maddeler.forEach(function(m,i){
+    if(!/^MADDE\s/i.test(String(m.baslik||'').trim()+' '))hata=(i+1)+'. maddenin başlığı “MADDE” ile başlamalı (örnek: MADDE 11 — EK HÜKÜMLER).';
+  });
+  if(String(d.sozlesmeMetni||'').length>30000)hata='Sözleşme maddeleri çok uzun (en fazla 30.000 karakter).';
+  ['baslangiclar','tatlilar','akisSablonu'].forEach(function(k){d[k]=temizListe(d[k],[]);});
+  ['baslik','sozlesmeMetni','senetMetni','senetYer'].forEach(function(k){d[k]=String(d[k]||'').trim();});
+  if(!d.sozlesmeMetni)hata='Sözleşme maddeleri boş bırakılamaz.';
+  if(!d.senetMetni)hata='Senet metni boş bırakılamaz.';
   if(!d.turler.length)hata='En az bir organizasyon türü olmalı.';
   if(d.sonOdemeGun==null)d.sonOdemeGun=VARSAYILAN.sonOdemeGun;
   if(d.sonOdemeGun>90)hata='Son ödeme süresi en fazla 90 gün olabilir.';
@@ -1031,7 +1195,7 @@ function setView(v){
 /* ---------- veri (Supabase) ---------- */
 function satirdanKayit(x){
   return {salon:x.salon,tarih:x.tarih,seans:x.seans,musteri:x.musteri,telefon:x.telefon||'',tur:x.tur||'',
-    sozlesmeTarihi:x.sozlesme_tarihi||'',kisi:x.kisi,menu:x.menu||'',kisiBasi:x.kisi_basi,bedel:x.bedel,kapora:x.kapora,not:x.notlar||'',
+    sozlesmeTarihi:x.sozlesme_tarihi||'',kisi:x.kisi,menu:x.menu||'',kisiBasi:x.kisi_basi,bedel:x.bedel,kapora:x.kapora,not:x.notlar||'',detay:(x.detay&&typeof x.detay==='object')?x.detay:{},
     olusturan:x.olusturan,olusturma:x.olusturma,guncelleyen:x.guncelleyen,guncelleme:x.guncelleme};
 }
 
@@ -1278,37 +1442,103 @@ function opts(list,val,bos){
   return h;
 }
 
+/* Telefon: 11 haneli, 0 ile başlar; "0535 668 79 80" biçiminde saklanır. */
+function telDuzelt(v){
+  var d=String(v==null?'':v).replace(/\D/g,'');
+  if(d.length===12&&d.slice(0,2)==='90')d='0'+d.slice(2);
+  if(d.length===10&&d.charAt(0)!=='0')d='0'+d;
+  if(d.length!==11||d.charAt(0)!=='0')return null;
+  return d.slice(0,4)+' '+d.slice(4,7)+' '+d.slice(7,9)+' '+d.slice(9);
+}
+function dlist(id,list){
+  var h='<datalist id="'+id+'">';list.forEach(function(o){h+='<option value="'+esc(o)+'"></option>';});return h+'</datalist>';
+}
+/* Menü değişince: boş olan ya da önceki menüden kendiliğinden gelmiş alanlar yeni menünün içeriğini alır;
+   elle yazılmış alanlara dokunulmaz. */
+function menuDoldur(ad){
+  var eski=menuOf(cur.menuAd)||{},yeni=menuOf(ad)||{};
+  [['f-baslangic','baslangic'],['f-anayemek','anaYemek'],['f-tatli','tatli'],['f-ikram','ikram']].forEach(function(c){
+    var el=$(c[0]);if(!el)return;
+    var d=el.value.trim();
+    if(!d||d===(eski[c[1]]||'')||(c[1]==='anaYemek'&&d===cur.menuAd))el.value=yeni[c[1]]||'';
+  });
+  cur.menuAd=ad;
+}
+function akisCiz(){
+  var el=$('f-akis');if(!el||!cur)return;
+  var ro=!st.canWrite,dis=ro?' disabled':'',h='';
+  cur.akis.forEach(function(a,i){
+    h+='<div class="akrow"><input type="text" class="aks" id="f-ak-saat-'+i+'" data-ak="'+i+'" data-f="saat" maxlength="5" placeholder="Saat" inputmode="numeric" value="'+esc(a.saat)+'" aria-label="Saat"'+dis+'>'+
+       '<input type="text" id="f-ak-ad-'+i+'" data-ak="'+i+'" data-f="ad" maxlength="80" placeholder="Ne yapılacak" value="'+esc(a.ad)+'" aria-label="Program adımı"'+dis+'>'+
+       (ro?'':'<button type="button" class="sil" data-akdel="'+i+'" aria-label="Bu adımı kaldır">&times;</button>')+'</div>';
+  });
+  if(!cur.akis.length)h='<p class="fine">Henüz program adımı yok.</p>';
+  el.innerHTML=h;
+}
+
 function openForm(salon,tarih,seans,msg){
   var id=slotId(salon,tarih,seans),r=st.recs.get(id)||null,s=seansOf(seans),sal=salonOf(salon);
   var ro=!st.canWrite,dis=ro?' disabled':'';
   var autoB=!!(r&&r.kisi&&r.kisiBasi&&r.bedel===r.kisi*r.kisiBasi);
-  cur={salon:salon,tarih:tarih,seans:seans,id:id,mode:r?'edit':'new',rec:r,bedelManual:!!(r&&r.bedel!=null&&!autoB),busy:false};
-  var v=r||{};
+  var v=r||{},dt=(r&&r.detay)||{};
+  cur={salon:salon,tarih:tarih,seans:seans,id:id,mode:r?'edit':'new',rec:r,bedelManual:!!(r&&r.bedel!=null&&!autoB),busy:false,degisti:false,
+       akis:Array.isArray(dt.akis)?dt.akis.map(function(a){return {saat:String(a.saat||''),ad:String(a.ad||'')};}):[],
+       anaOto:!dt.anaYemek||dt.anaYemek===v.menu,menuAd:v.menu||''};
+  function inp(idv,lbl,val,extra){return '<div class="fld'+((extra&&extra.wide)?' wide':'')+'"><label for="'+idv+'">'+lbl+'</label><input id="'+idv+'" type="'+((extra&&extra.type)||'text')+'" autocomplete="off" maxlength="'+((extra&&extra.max)||120)+'"'+((extra&&extra.attr)||'')+' value="'+esc(val)+'"'+dis+'>'+((extra&&extra.hint)||'')+'</div>';}
+  var tel=' inputmode="tel" placeholder="05xx xxx xx xx" data-tel';
   var h='<form id="frm" class="dbody s-'+salon+'" novalidate>'+
     dhead(r?(ro?'Sözleşme':'Sözleşmeyi düzenle'):'Yeni sözleşme',tarih)+
     '<div class="ctx"><span class="chip salon">'+esc(sal.ad)+'</span><span class="chip">'+icon(s.ic)+esc(s.ad)+' seansı'+(s.saat?' · '+esc(s.saat):'')+'</span><span class="chip">Kayıt no '+kayitNo(salon,tarih,seans)+'</span></div>'+
     (r&&!ro?'<p class="kilit">'+esc(msg||'Bu seans dolu. Yeni sözleşme alınmaz; yalnızca bu sözleşme düzenlenir.')+'</p>':'')+
-    '<div class="fgrid">'+
-      '<div class="fld wide"><label for="f-musteri">Müşteri adı soyadı</label><input id="f-musteri" type="text" autocomplete="off" maxlength="120" value="'+esc(v.musteri)+'"'+dis+'></div>'+
-      '<div class="fld"><label for="f-telefon">Telefon</label><input id="f-telefon" type="tel" inputmode="tel" autocomplete="off" maxlength="30" placeholder="05xx xxx xx xx" value="'+esc(v.telefon)+'"'+dis+'></div>'+
+
+    '<h3 class="fsec">Müşteri</h3><div class="fgrid">'+
+      inp('f-musteri','Müşteri adı soyadı',v.musteri,{wide:true})+
+      inp('f-telefon','Müşteri telefonu',v.telefon,{type:'tel',max:20,attr:tel})+
       '<div class="fld"><label for="f-tur">Organizasyon türü</label><select id="f-tur"'+dis+'>'+opts(cfg.turler,v.tur||(r?'':cfg.turler[0]),'Seçilmedi')+'</select></div>'+
+    '</div>'+
+
+    '<h3 class="fsec">Gelin ve damat</h3><div class="fgrid">'+
+      inp('f-gelin','Gelin adı soyadı',dt.gelinAd)+
+      inp('f-gelin-tel','Gelin telefonu',dt.gelinTel,{type:'tel',max:20,attr:tel})+
+      inp('f-damat','Damat adı soyadı',dt.damatAd)+
+      inp('f-damat-tel','Damat telefonu',dt.damatTel,{type:'tel',max:20,attr:tel})+
+    '</div>'+
+
+    '<h3 class="fsec">Organizasyon</h3><div class="fgrid">'+
       '<div class="fld"><label for="f-sozlesme-tarihi">Sözleşme imza tarihi</label><input id="f-sozlesme-tarihi" type="date" value="'+esc(v.sozlesmeTarihi||(r?'':todayStr()))+'"'+dis+'></div>'+
       '<div class="fld"><label for="f-kisi">Kişi sayısı</label><input id="f-kisi" class="money" type="text" inputmode="numeric" autocomplete="off" maxlength="6" value="'+(v.kisi!=null?fmtN(v.kisi):'')+'"'+dis+'><span class="hint bad" id="f-kisi-uyari" hidden></span></div>'+
-      '<div class="fld"><label for="f-menu">Menü</label><select id="f-menu"'+dis+'>'+opts(cfg.menuler,v.menu||'','Belirlenmedi')+'</select></div>'+
+    '</div>'+
+
+    '<h3 class="fsec">Menü detayı</h3><div class="fgrid">'+
+      '<div class="fld wide"><label for="f-menu">Menü</label><select id="f-menu"'+dis+'>'+opts(menuAdlari(),v.menu||'','Belirlenmedi')+'</select><span class="hint">Menü seçilince aşağıdaki alanlar menünün içeriğiyle dolar; bu sözleşme için değiştirilebilir.</span></div>'+
+      inp('f-baslangic','Başlangıç',dt.baslangic,{max:80,attr:' list="dl-baslangic" placeholder="Çorba, ordövr…"'})+
+      inp('f-anayemek','Ana yemek',dt.anaYemek||v.menu||'',{max:120})+
+      inp('f-tatli','Tatlı',dt.tatli,{max:80,attr:' list="dl-tatli" placeholder="Yaş pasta, dondurmalı pasta…"'})+
+      inp('f-ikram','Diğer ikramlar',dt.ikram,{max:160,attr:' placeholder="Salata, meyve, içecek…"'})+
+    '</div>'+dlist('dl-baslangic',cfg.baslangiclar)+dlist('dl-tatli',cfg.tatlilar)+
+
+    '<h3 class="fsec">Program akışı</h3><div class="akis" id="f-akis"></div>'+
+    (ro?'':'<div class="akbtn"><button type="button" class="ekle" id="f-ak-ekle">+ Adım ekle</button>'+(cfg.akisSablonu.length?'<button type="button" class="ekle" id="f-ak-sablon">Hazır akışı ekle</button>':'')+'</div>')+
+
+    '<h3 class="fsec">Ödeme</h3><div class="fgrid">'+
       '<div class="fld"><label for="f-kisibasi">Kişi başı fiyat (₺)</label><input id="f-kisibasi" class="money" type="text" inputmode="numeric" autocomplete="off" maxlength="12" value="'+(v.kisiBasi!=null?fmtN(v.kisiBasi):'')+'"'+dis+'></div>'+
       '<div class="fld"><label for="f-bedel">Toplam bedel (₺)</label><input id="f-bedel" class="money" type="text" inputmode="numeric" autocomplete="off" maxlength="15" value="'+(v.bedel!=null?fmtN(v.bedel):'')+'"'+dis+'><span class="hint">Kişi sayısı × kişi başı fiyattan hesaplanır; elle de yazılabilir.</span></div>'+
       '<div class="fld"><label for="f-kapora">Alınan kapora (₺)</label><input id="f-kapora" class="money" type="text" inputmode="numeric" autocomplete="off" maxlength="15" value="'+(v.kapora!=null?fmtN(v.kapora):'')+'"'+dis+'></div>'+
     '</div>'+
-    '<dl class="ozet"><div><dt>Kalan bakiye</dt><dd id="o-kalan">—</dd></div>'+
+    '<dl class="ozet"><div><dt>Kalan bakiye</dt><dd id="o-kalan">—</dd><small>Senet bu tutar üzerinden düzenlenir</small></div>'+
       '<div><dt>Son ödeme tarihi</dt><dd>'+fmtKisa(sonOdeme(tarih))+'</dd><small>'+(cfg.sonOdemeGun?'Organizasyondan '+cfg.sonOdemeGun+' gün önce, otomatik':'Organizasyon günü, otomatik')+'</small></div></dl>'+
-    '<div class="fld"><label for="f-not">Notlar</label><textarea id="f-not" maxlength="2000"'+dis+'>'+esc(v.not)+'</textarea></div>'+
+
+    '<h3 class="fsec">Özel istekler ve notlar</h3>'+
+    '<div class="fld"><textarea id="f-not" maxlength="2000" aria-label="Özel istekler ve notlar"'+dis+'>'+esc(v.not)+'</textarea></div>'+
     (cfg.dipNot?'<p class="fine">'+esc(cfg.dipNot)+'</p>':'')+
     '<p class="err" id="f-err" hidden></p>'+
     '<div class="dfoot"><span class="meta" id="f-meta"></span>'+
+      (r?'<button type="button" class="btn" id="f-yazdir">Sözleşmeyi yazdır / PDF</button>':'')+
       '<button type="button" class="btn" data-close>'+(ro?'Kapat':'Vazgeç')+'</button>'+
       (ro?'':'<button type="submit" class="btn primary" id="f-kaydet">'+(r?'Değişiklikleri kaydet':'Sözleşmeyi kaydet')+'</button>')+
     '</div></form>';
   show(h);
+  akisCiz();
   ozet();
   if(r)fillMeta(r,id);
   if(!ro&&!r){var f=$('f-musteri');if(f)f.focus();}
@@ -1341,10 +1571,18 @@ function save(){
   var e=$('f-err');e.hidden=true;
   var musteri=val('f-musteri'),kisi=parseN(val('f-kisi')),kisiBasi=parseN(val('f-kisibasi')),bedel=parseN(val('f-bedel')),kapora=parseN(val('f-kapora'));
   if(!musteri){fail('Müşteri adı soyadı boş bırakılamaz.');$('f-musteri').focus();return;}
+  var tel=telDuzelt(val('f-telefon'));
+  if(!tel){fail('Müşteri telefonu 11 haneli olmalı. Örnek: 0535 123 45 67');$('f-telefon').focus();return;}
+  var gTel='',dTel='';
+  if(val('f-gelin-tel')){gTel=telDuzelt(val('f-gelin-tel'));if(!gTel){fail('Gelin telefonu 11 haneli olmalı. Örnek: 0535 123 45 67');$('f-gelin-tel').focus();return;}}
+  if(val('f-damat-tel')){dTel=telDuzelt(val('f-damat-tel'));if(!dTel){fail('Damat telefonu 11 haneli olmalı. Örnek: 0535 123 45 67');$('f-damat-tel').focus();return;}}
   if(kisi!==null&&kisi<1){fail('Kişi sayısı en az 1 olmalı.');$('f-kisi').focus();return;}
   if(bedel!==null&&kapora!==null&&kapora>bedel){fail('Kapora, toplam bedelden büyük olamaz.');$('f-kapora').focus();return;}
-  var alan={musteri:musteri,telefon:val('f-telefon'),tur:val('f-tur'),sozlesme_tarihi:val('f-sozlesme-tarihi')||null,
-    kisi:kisi,menu:val('f-menu'),kisi_basi:kisiBasi,bedel:bedel,kapora:kapora,notlar:val('f-not')};
+  var detay={gelinAd:val('f-gelin'),gelinTel:gTel,damatAd:val('f-damat'),damatTel:dTel,
+    baslangic:val('f-baslangic'),anaYemek:val('f-anayemek'),tatli:val('f-tatli'),ikram:val('f-ikram'),
+    akis:c.akis.map(function(a){return {saat:String(a.saat||'').trim(),ad:String(a.ad||'').trim()};}).filter(function(a){return a.saat||a.ad;})};
+  var alan={musteri:musteri,telefon:tel,tur:val('f-tur'),sozlesme_tarihi:val('f-sozlesme-tarihi')||null,
+    kisi:kisi,menu:val('f-menu'),kisi_basi:kisiBasi,bedel:bedel,kapora:kapora,notlar:val('f-not'),detay:detay};
   var btn=$('f-kaydet'),eski=btn.textContent;
   c.busy=true;btn.disabled=true;btn.textContent='Kaydediliyor…';
   function done(){c.busy=false;if($('f-kaydet')){btn.disabled=false;btn.textContent=eski;}}
@@ -1366,14 +1604,159 @@ function save(){
       }
       done();
       if(r.error.code==='PGRST116')fail('Kayıt kabul edilmedi. Bu hesabın sözleşme yazma yetkisi olmayabilir.');
+      else if(r.error.code==='PGRST204'||/detay/.test(r.error.message||''))fail('Veritabanı henüz güncellenmemiş: "detay" alanı eksik. Yöneticinize haber verin.');
       else fail(hataMetni(r.error));
       return;
     }
     putLocal(c.id,satirdanKayit(r.data));
-    hide();
+    /* Kayıttan sonra pencere açık kalır; sözleşme buradan yazdırılabilir. */
+    openForm(c.salon,c.tarih,c.seans,c.mode==='new'?'Sözleşme kaydedildi. Seans artık dolu; sözleşmeyi aşağıdaki düğmeyle yazdırabilirsiniz.':'Değişiklikler kaydedildi.');
     toast(c.mode==='new'?'Sözleşme kaydedildi. Seans artık dolu.':'Değişiklikler kaydedildi.');
   }).catch(function(err){done();fail(hataMetni(err));});
 }
+
+/* ---------- sözleşme ve senet çıktısı ---------- */
+function paraTL(n){return (n===null||n===undefined)?'—':fmtN(n)+',00 TL';}
+/* Tutarı yazıyla verir: 450000 → "DörtYüzElliBin" (senetlerde bitişik yazılır). */
+function yaziyla(n){
+  n=Math.round(Number(n)||0);
+  if(n===0)return 'Sıfır';
+  var bir=['','Bir','İki','Üç','Dört','Beş','Altı','Yedi','Sekiz','Dokuz'],on=['','On','Yirmi','Otuz','Kırk','Elli','Altmış','Yetmiş','Seksen','Doksan'],bas=['','Bin','Milyon','Milyar','Trilyon'];
+  var out='',g=0;
+  while(n>0){
+    var u=n%1000,s='';
+    if(u){
+      var y=Math.floor(u/100),o=Math.floor((u%100)/10),b=u%10;
+      if(y)s+=(y>1?bir[y]:'')+'Yüz';
+      s+=on[o]+bir[b];
+      if(g===1&&u===1)s='';
+      out=s+bas[g]+out;
+    }
+    n=Math.floor(n/1000);g++;
+  }
+  return out;
+}
+function metinParagraf(t){
+  var h='';
+  String(t||'').split(/\n+/).forEach(function(l){
+    l=l.trim();if(!l)return;
+    if(/^MADDE\s/i.test(l))h+='<h4>'+esc(l)+'</h4>';
+    else if(/^BEYAN\s*:/i.test(l))return;
+    else h+='<p>'+esc(l)+'</p>';
+  });
+  return h;
+}
+function beyanMetni(t){
+  var b='';String(t||'').split(/\n+/).forEach(function(l){l=l.trim();if(/^BEYAN\s*:/i.test(l))b=l.replace(/^BEYAN\s*:/i,'').trim();});
+  return b;
+}
+function yazdirHtml(r){
+  var dt=r.detay||{},s=seansOf(r.seans),sal=salonOf(r.salon),no=kayitNo(r.salon,r.tarih,r.seans);
+  var kalan=r.bedel!=null?r.bedel-(r.kapora||0):null,vade=sonOdeme(r.tarih);
+  var akisVar=Array.isArray(dt.akis)&&dt.akis.some(function(a){return a&&(a.ad||a.saat);});
+  function satir(k,v){return v?'<tr><th>'+k+'</th><td>'+v+'</td></tr>':'';}
+  function kisi(ad,tel){return [esc(ad||''),esc(tel||'')].filter(Boolean).join(' · ');}
+  var baslik=String(cfg.baslik||'').split(/\n+/).map(function(l){return esc(l.trim());}).filter(Boolean).join('<br>');
+  var beyan=beyanMetni(cfg.sozlesmeMetni);
+  var h='<div class="yic">'+
+    '<header class="yust"><div><div class="ywm">LUSSO WEDDING</div><div class="ybas">'+esc(sal.ad.toLocaleUpperCase('tr'))+' SALONU · ORGANİZASYON SÖZLEŞMESİ</div></div><div class="yadr">'+baslik+'</div></header>'+
+    '<div class="yiki"><div><h3>Organizasyon bilgileri</h3><table class="ykunye">'+
+      satir('Tarih',esc(fmtUzun(r.tarih)))+
+      satir('Seans',esc(s.ad)+(s.saat?' · '+esc(s.saat):''))+
+      satir('Sözleşme no',no)+
+      satir('Salon',esc(sal.ad))+
+      satir('Organizasyon türü',esc(r.tur))+
+      satir('Müşteri',esc(r.musteri))+
+      satir('Müşteri telefonu',esc(r.telefon))+
+      satir('Gelin',kisi(dt.gelinAd,dt.gelinTel))+
+      satir('Damat',kisi(dt.damatAd,dt.damatTel))+
+      satir('Davetli sayısı',r.kisi!=null?fmtN(r.kisi)+' kişi':'')+
+      satir('Program akışı',akisVar?'Alındı':'Alınmadı')+
+    '</table></div><div>'+
+      '<h3>Menü</h3><table class="ykunye">'+
+      (satir('Menü',esc(r.menu))+satir('Başlangıç',esc(dt.baslangic))+satir('Ana yemek',esc(dt.anaYemek))+satir('Tatlı',esc(dt.tatli))+satir('Diğer ikramlar',esc(dt.ikram))||'<tr><td>Menü belirlenmedi.</td></tr>')+
+      '</table>'+
+      '<h3>Ödeme</h3><table class="ykunye">'+
+      (satir('Kişi başı fiyat',r.kisiBasi!=null?paraTL(r.kisiBasi):'')+
+       satir('Toplam bedel',r.bedel!=null?paraTL(r.bedel):'')+
+       satir('Alınan kapora',r.kapora!=null?paraTL(r.kapora):'')+
+       satir('Kalan bakiye',kalan!=null?'<b>'+paraTL(kalan)+'</b>':'')+
+       satir('Son ödeme tarihi',kalan>0?fmtKisa(vade):'')+
+       satir('Sözleşme tarihi',r.sozlesmeTarihi?fmtKisa(r.sozlesmeTarihi):'')||'<tr><td>Bedel belirlenmedi.</td></tr>')+
+      '</table>'+
+    '</div></div>'+
+    (r.not?'<p class="yozel"><b class="yb">ÖZEL İSTEKLER</b> '+esc(r.not).replace(/\n+/g,' · ')+'</p>':'')+
+    '<h3 class="ysart">Sözleşme şartları</h3><div class="ymetin">'+metinParagraf(cfg.sozlesmeMetni)+'</div>'+
+    '<div class="yson">'+(beyan?'<p class="beyan"><b>BEYAN:</b> '+esc(beyan)+'</p>':'')+
+    '<div class="yimza"><div><b class="yb">ORGANİZASYON SAHİBİ</b><span>Ad Soyad : '+esc(r.musteri)+'</span><span>İmza : ______________________</span></div>'+
+      '<div><b class="yb">LUSSO WEDDING Yetkili</b><span>Ad Soyad : ......................................</span><span>Kaşe / İmza : ______________________</span></div></div></div>';
+  if(kalan>0){
+    /* Senet: ayrı başlık ve sayfa yok; imzaların altında, sözleşmenin devamı olarak basılır. */
+    var yer=esc(cfg.senetYer||'ANKARA'),govde=esc(cfg.senetMetni||'').replace(/\{TUTAR\}/g,'<b>#'+yaziyla(kalan)+'#</b>');
+    h+='<div class="ysenet">'+
+      '<table class="ybono"><tr><td>Düzenleme Yeri : <b>'+yer+'</b></td><td>Düzenleme Tarihi : <b>'+(r.sozlesmeTarihi?fmtKisa(r.sozlesmeTarihi):'..... / ..... / 20.....')+'</b></td>'+
+        '<td>Vade : <b>'+fmtKisa(vade)+'</b></td><td>Ödeme Yeri : <b>'+yer+'</b></td></tr>'+
+        '<tr><td colspan="4">Tutar : <b>#'+paraTL(kalan)+'#</b></td></tr></table>'+
+      '<p class="ygovde">'+govde+'</p>'+
+      '<b class="yb">BORÇLU</b><div class="yborclu"><span>Ad Soyad : '+esc(r.musteri)+'</span><span>T.C. No : ..................................................</span>'+
+        '<span>Adres : ........................................................................</span><span>İmza : ______________________________</span></div>'+
+      '</div>';
+  }
+  return h+'</div>';
+}
+/* Çıktı en fazla 2 sayfa: sığmıyorsa yazı boyutu sığana kadar küçültülür (alt sınır 7,4 punto).
+   Bölünmeyen bloklar (beyan + imzalar, senet) sayfa sonuna denk gelirse sonraki sayfaya kayar; bu da hesaba katılır. */
+function yazdirBoy(ic,H){
+  var ust=ic.getBoundingClientRect().top,kay=0;
+  ['.yson','.ysenet'].forEach(function(q){
+    var el=ic.querySelector(q);if(!el)return;
+    var k=el.getBoundingClientRect(),t=k.top-ust+kay,b=t+k.height,sf=Math.floor(t/H);
+    if(b>(sf+1)*H&&k.height<H)kay+=(sf+1)*H-t;
+  });
+  return ic.getBoundingClientRect().height+kay;
+}
+function yazdirSigdir(){
+  var ic=$('yazdir').firstElementChild;if(!ic)return 10;
+  var mm=ic.getBoundingClientRect().width/184,H=274*mm,hedef=2*H-9*mm,fs=10;
+  ic.style.fontSize=fs+'pt';
+  while(yazdirBoy(ic,H)>hedef&&fs>7.4){fs=Math.round((fs-0.2)*10)/10;ic.style.fontSize=fs+'pt';}
+  return fs;
+}
+function yazdirFontlar(){
+  if(!document.fonts||!document.fonts.load)return Promise.resolve();
+  var yuk=Promise.all(['400 10pt "EB Garamond"','500 10pt Montserrat','700 10pt Montserrat','600 10pt Cinzel'].map(function(f){
+    return document.fonts.load(f).catch(function(){});}));
+  return Promise.race([yuk,new Promise(function(r){setTimeout(r,2500);})]);
+}
+var eskiBaslik=null;
+function yazdir(){
+  if(!cur||!cur.rec)return;
+  if(cur.degisti){fail('Yazdırmadan önce değişiklikleri kaydedin.');return;}
+  var r=cur.rec;
+  yazdirGoster(yazdirHtml(r),'Lusso Sözleşme '+kayitNo(r.salon,r.tarih,r.seans)+' '+r.musteri);
+}
+/* Yazı tipleri yüklenince ölçülür, sonra tarayıcının yazdırma penceresi açılır;
+   "Hedef" olarak "PDF olarak kaydet" seçilirse PDF olur. */
+function yazdirGoster(html,baslik){
+  $('yazdir').innerHTML=html;
+  eskiBaslik=document.title;
+  document.title=baslik;
+  yazdirFontlar().then(function(){yazdirSigdir();setTimeout(function(){window.print();},60);});
+}
+/* Ayarlar ekranındaki "Örnek çıktıyı gör": kaydedilmemiş ayarlarla, örnek bilgilerle bir sözleşme basar. */
+function yazdirOrnek(){
+  var asil=cfg,html,gun=toDate(todayStr());
+  gun.setDate(gun.getDate()+60);
+  try{
+    cfg=normalize(clone(draft));
+    var m=cfg.menuler[0]||{};
+    html=yazdirHtml({salon:cfg.salonlar[0].id,tarih:dateStr(gun),seans:'aksam',musteri:'Örnek Müşteri',telefon:'0500 000 00 00',tur:cfg.turler[0]||'',
+      sozlesmeTarihi:todayStr(),kisi:400,menu:m.ad||'',kisiBasi:1000,bedel:400000,kapora:40000,not:'',
+      detay:{gelinAd:'Örnek Gelin',gelinTel:'',damatAd:'Örnek Damat',damatTel:'',baslangic:m.baslangic||'',anaYemek:m.anaYemek||'',tatli:m.tatli||'',ikram:m.ikram||'',akis:[]}});
+  }finally{cfg=asil;}
+  yazdirGoster(html,'Lusso Sözleşme Örnek');
+}
+window.addEventListener('afterprint',function(){if(eskiBaslik!==null){document.title=eskiBaslik;eskiBaslik=null;}});
 
 function toast(t){
   var el=$('toast');el.textContent=t;el.hidden=false;
@@ -1422,6 +1805,12 @@ $('ayar').addEventListener('input',function(ev){
     var i=+t.getAttribute('data-yogun'),a=draft.yogunGunler.filter(function(x){return x!==i;});
     if(t.checked)a.push(i);
     draft.yogunGunler=a.sort();
+  }else if(t.hasAttribute('data-md')){
+    md.maddeler[+t.getAttribute('data-md')][t.getAttribute('data-f')]=t.value;maddeYaz();
+  }else if(t.hasAttribute('data-md-giris')){
+    md.giris=t.value;maddeYaz();
+  }else if(t.hasAttribute('data-md-beyan')){
+    md.beyan=t.value;maddeYaz();
   }else if(t.hasAttribute('data-p')){
     var v=t.value;
     if(t.hasAttribute('data-num')){v=parseN(v);t.value=v==null?'':v;}
@@ -1432,10 +1821,19 @@ $('ayar').addEventListener('input',function(ev){
 $('ayar').addEventListener('click',function(ev){
   var t=ev.target.closest('button');if(!t)return;
   if(t.hasAttribute('data-add')){
-    var k=t.getAttribute('data-add');draft[k].push('');dirty=true;renderAyarlar();
+    var k=t.getAttribute('data-add');draft[k].push(k==='menuler'?{ad:'',baslangic:'',anaYemek:'',tatli:'',ikram:''}:'');dirty=true;renderAyarlar();
     var yeni=$('a-'+k+'-'+(draft[k].length-1));if(yeni)yeni.focus();
   }else if(t.hasAttribute('data-del')){
     var p=t.getAttribute('data-del').split('.');draft[p[0]].splice(+p[1],1);dirty=true;renderAyarlar();
+  }else if(t.id==='a-madde-ekle'){
+    md.maddeler.push({baslik:'MADDE '+(md.maddeler.length+1)+' — ',metin:''});maddeYaz();dirty=true;renderAyarlar();
+    var yb=$('a-md-'+(md.maddeler.length-1)+'-baslik');if(yb){yb.focus();yb.setSelectionRange(yb.value.length,yb.value.length);}
+  }else if(t.hasAttribute('data-mdel')){
+    var mi=+t.getAttribute('data-mdel'),mm=md.maddeler[mi];
+    if(mm&&String(mm.metin||'').trim()&&!window.confirm('“'+String(mm.baslik||'Madde').trim()+'” maddesi metniyle birlikte kaldırılsın mı?'))return;
+    md.maddeler.splice(mi,1);maddeYaz();dirty=true;renderAyarlar();
+  }else if(t.id==='a-ornek'){
+    yazdirOrnek();
   }else if(t.id==='a-geri'){
     draft=clone(cfg);dirty=false;renderAyarlar();
   }else if(t.id==='a-kaydet')ayarKaydet();
@@ -1443,6 +1841,13 @@ $('ayar').addEventListener('click',function(ev){
 
 dlg.addEventListener('click',function(ev){
   if(ev.target.closest('[data-close]')){hide();return;}
+  var b=ev.target.closest('button');
+  if(b&&cur&&$('frm')){
+    if(b.id==='f-yazdir'){yazdir();return;}
+    if(b.id==='f-ak-ekle'){cur.akis.push({saat:'',ad:''});cur.degisti=true;akisCiz();var y=$('f-ak-saat-'+(cur.akis.length-1));if(y)y.focus();return;}
+    if(b.id==='f-ak-sablon'){cfg.akisSablonu.forEach(function(a){cur.akis.push({saat:'',ad:a});});cur.degisti=true;akisCiz();return;}
+    if(b.hasAttribute('data-akdel')){cur.akis.splice(+b.getAttribute('data-akdel'),1);cur.degisti=true;akisCiz();return;}
+  }
   var s=ev.target.closest('.slot');
   if(s){if(!s.disabled)openForm(s.getAttribute('data-salon'),s.getAttribute('data-date'),s.getAttribute('data-seans'));return;}
   var o=ev.target.closest('[data-open]');
@@ -1450,8 +1855,17 @@ dlg.addEventListener('click',function(ev){
 });
 dlg.addEventListener('close',function(){cur=null;});
 dlg.addEventListener('submit',function(ev){ev.preventDefault();if(ev.target.id==='sfrm')sifreKaydet();else save();});
+dlg.addEventListener('change',function(ev){
+  var t=ev.target;if(!cur||!t)return;
+  if(t.hasAttribute('data-tel')&&t.value.trim()){var d=telDuzelt(t.value);if(d)t.value=d;}
+  if(t.id==='f-menu'){cur.degisti=true;menuDoldur(t.value);}
+  if(t.id==='f-tur'||t.id==='f-sozlesme-tarihi')cur.degisti=true;
+});
 dlg.addEventListener('input',function(ev){
   var t=ev.target;if(!cur||!t||!t.id)return;
+  if($('frm'))cur.degisti=true;
+  if(t.hasAttribute('data-ak')){cur.akis[+t.getAttribute('data-ak')][t.getAttribute('data-f')]=t.value;return;}
+  if(t.id==='f-anayemek')cur.anaOto=false;
   if(t.classList.contains('money')){var n=parseN(t.value);t.value=n==null?'':fmtN(n);}
   if(t.id==='f-bedel')cur.bedelManual=t.value!=='';
   if((t.id==='f-kisi'||t.id==='f-kisibasi')&&!cur.bedelManual){
