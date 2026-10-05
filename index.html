@@ -332,6 +332,7 @@ textarea.ain.uzun{min-height:340px;font-size:13px}
 .mbas{display:grid;grid-template-columns:minmax(0,1fr) 40px;gap:10px;align-items:end}
 .mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .mf{display:flex;flex-direction:column;gap:5px;min-width:0}
+.mbas.ust{align-items:start}
 .ain.guclu{font-weight:600}
 textarea.ain.oto{field-sizing:content;min-height:84px;max-height:70vh;line-height:1.5}
 @media (max-width:700px){.mgrid{grid-template-columns:minmax(0,1fr)}}
@@ -346,6 +347,7 @@ textarea.ain.oto{field-sizing:content;min-height:84px;max-height:70vh;line-heigh
 .ywm{font-family:var(--f-display);font-weight:600;font-size:1.6em;letter-spacing:.18em}
 .ybas{font-family:var(--f-ui);font-weight:600;font-size:.84em;letter-spacing:.14em;margin-top:.25em}
 .yadr{max-width:46%;font-family:var(--f-ui);font-size:.72em;line-height:1.4;text-align:right}
+.yadr b{font-weight:700;font-size:1.12em;letter-spacing:.14em}
 .yic h3{margin:0 0 .4em;font-family:var(--f-ui);font-weight:700;font-size:.78em;letter-spacing:.14em;text-transform:uppercase}
 .yb{font-family:var(--f-ui);font-weight:700;font-size:.8em;letter-spacing:.12em}
 .yiki{display:grid;grid-template-columns:1.05fr 1fr;gap:2.2em;margin-bottom:.7em}
@@ -354,6 +356,12 @@ textarea.ain.oto{field-sizing:content;min-height:84px;max-height:70vh;line-heigh
 .ykunye th{width:34%;padding:.12em .6em .12em 0;text-align:left;vertical-align:top;font-family:var(--f-ui);font-weight:500;font-size:.8em}
 .ykunye td{padding:.12em 0;vertical-align:top;border-bottom:.3pt dotted #888;overflow-wrap:anywhere}
 .yozel{margin:0 0 .7em;font-size:.94em}
+.yonemli{margin:0 0 .8em;padding:.5em .8em .45em;border:1.3pt solid #000;break-inside:avoid}
+.yonbas{display:flex;justify-content:space-between;align-items:baseline;gap:2em;margin-bottom:.3em}
+.yonbas span{font-size:.86em;white-space:nowrap}
+.yonemli ol{margin:0;padding-left:1.35em;font-size:.93em;line-height:1.3;text-align:justify}
+.yonemli li{margin-bottom:.22em}
+.yonemli li:last-child{margin-bottom:0}
 .ysart{padding-top:.6em;border-top:.6pt solid #000}
 .ymetin{font-size:.86em;line-height:1.25;text-align:justify}
 .ymetin h4{margin:.5em 0 .12em;font-family:var(--f-ui);font-weight:700;font-size:.86em;letter-spacing:.06em;break-after:avoid}
@@ -540,11 +548,27 @@ var VARSAYILAN={
   sonOdemeGun:7,
   dipNot:'Tutarlar KDV hariçtir. Ödemeler nakit, makbuz karşılığı Lusso kasasına alınır.',
   /* Sözleşme çıktısı: başlık satırları, matbu maddeler ve senet metni Ayarlar'dan değiştirilebilir */
-  baslik:'Ovacık Mah. Kartaltepe Kent Ormanı Cad. 696. Sok. No:2 Keçiören / Ankara\nTel: 0312 578 04 04 · 0535 978 82 18\nYıldırım Beyazıt Vergi Dairesi · 6290476955',
+  baslik:'LUSSO WEDDING\nOvacık Mah. Kartaltepe Kent Ormanı Cad. 696. Sok. No:2 Keçiören / Ankara\nTel: 0312 578 04 04 · 0535 978 82 18',
   sozlesmeMetni:"MADDE 1 — TARAFLAR, KONU VE KAPSAM\n1.1 İşbu sözleşme, LUSSO WEDDING (“LUSSO”) ile organizasyon bilgileri bölümünde yazılı Organizasyon Sahibi (“MÜŞTERİ”) arasında, belirtilen tarih, seans ve salonda organizasyon hizmeti verilmesi için düzenlenmiştir.\n1.2 Sözleşme yalnızca belirtilen salon içindir; müşteri'nin salon dışında tesis üzerinde hiçbir tasarrufu yoktur. Müşteri ve misafirleri diğer salonların müşterilerini rahatsız edemez; misafirlerin davranışlarından müşteri sorumludur. İŞLETMEYE DAVUL, ZURNA VB. DIŞARIDAN MÜZİSYEN GETİRİLEMEZ; getirilmesi halinde içeri alınmaz, bu nedenle indirim veya tazminat talep edilemez.\n1.3 İŞLETME KESİNLİKLE ALKOLSÜZDÜR; TESİS İÇİNDE VE DIŞ ALANLARINDA ALKOL KULLANIMI VE BULUNDURULMASI KESİNLİKLE YASAKTIR. Alkollü misafir içeri alınmaz; tespit edilmesi halinde organizasyon durdurulabilir, bu nedenle indirim veya tazminat talep edilemez.\nMADDE 2 — KİŞİ SAYISI, MASA KURALI VE BEDEL\n2.1 Sözleşme bedeli, kişi başı fiyat × garanti edilen kişi sayısıdır; daha az misafir gelmesi indirim sebebi olmaz. Masalar 10 kişiliktir; kişi sayısı kurulan masa düzenine göre belirlenir ve masa sayısı × 10 olarak yukarı yuvarlanır. Garanti sayının veya masa düzeninin üzerinde gelen misafirler organizasyon bitiminde LUSSO salon sorumlusunca tespit edilir, adisyon düzenlenir ve aynı gece kişi başı sözleşme fiyatından tahsil edilir; bu tespit kesin delildir, sonradan itiraz kabul edilmez.\nMADDE 3 — ÖDEME KOŞULLARI\n3.1 Kapora tutarı ve ödeme planı organizasyon bilgileri bölümünde belirtilir; kapora sözleşme anında ödenir. TÜM ÖDEMELER YALNIZCA NAKİT OLARAK LUSSO KASASINA YAPILIR VE MAKBUZ KARŞILIĞI TESLİM ALINIR; banka hesabına, üçüncü kişilere veya makbuzsuz yapılan ödemeler LUSSO’yu bağlamaz. Kalan bakiyenin tamamı, organizasyon tarihinden en geç 7 (yedi) gün önce garanti edilen kişi sayısı üzerinden ödenir.\n3.2 Kapora cayma bedeli niteliğindedir; Madde 4.1 hariç hiçbir surette iade edilmez, başka tarihe veya başka kişiye devredilemez.\n3.3 Organizasyon gecesi oluşan ekstra tüketimler, ilave masa ve kişi farkları, süre aşımı ve hasar bedelleri aynı gece nakit olarak ödenir. Aynı gece ödenmeyen tutarlar, ödeme gününe kadar resmi enflasyon (TÜİK TÜFE) farkı eklenerek tahsil edilir; LUSSO’nun yasal takip hakkı saklıdır. BAKİYESİ ORGANİZASYONDAN 7 GÜN ÖNCE ÖDENMEMİŞ ORGANİZASYONUN HAZIRLIĞINA BAŞLANMAZ; bu halde LUSSO başka bir ihbara gerek olmaksızın sözleşmeyi feshetmiş sayılır, kapora ve yapılmış ödemeler iade edilmez ve MÜŞTERİ bu nedenle hiçbir hak, indirim veya tazminat talep edemez.\n3.4 Kalan bakiye için MÜŞTERİ tarafından ayrıca bono (emre muharrer senet) düzenlenir. Bakiyenin süresinde ödenmesi halinde bono MÜŞTERİ’ye iade edilir.\n3.5 Ödemeler karşılığında yasal fatura düzenlenir. Sözleşmedeki tutarlara KDV dahil değildir; KDV ayrıca hesaplanır ve MÜŞTERİ tarafından ödenir.\nMADDE 4 — İPTAL, CAYMA VE TARİH DEĞİŞİKLİĞİ\n4.1 Sözleşme tarihinden itibaren 7 gün içinde yazılı olarak iptal edilen rezervasyonlarda kapora iade edilir. Bu süreden sonra yapılan iptallerde kapora iade edilmez.\n4.2 Kademeli iptal bedeli — organizasyon tarihine: 60–45 gün kala iptallerde toplam bedelin %50’si; 44–31 gün kala %75’i; 30 gün ve daha az kala veya organizasyon günü iptallerde %100’ü MÜŞTERİ tarafından ödenir. Bono bu bedelin teminatıdır.\n4.3 LUSSO’nun iptal edilen tarih ve salonu aynı bedelle başka bir müşteriye satması halinde, alınan kapora MÜŞTERİ’ye iade edilir; bunun dışında iade yapılmaz.\n4.4 Tarih değişikliği LUSSO’nun takdirinde ve müsaitliğe bağlıdır. Organizasyona 70 günden az süre kala talep edilen değişikliklerde kapora iade edilmez ve yeni tarihe mahsup edilmez.\n4.5 LUSSO, MÜŞTERİ’nin sözleşmeye aykırı davranması, ödeme yükümlülüklerini yerine getirmemesi veya organizasyonun güvenliğini tehlikeye sokması halinde sözleşmeyi tek taraflı feshedebilir; bu halde kapora ve yapılmış ödemeler iade edilmez.\nMADDE 5 — MÜZİK, SANATÇI VE SES DÜZENİ\n5.1 MÜŞTERİ’nin getirdiği sanatçı, orkestra, solist veya DJ yalnızca LUSSO yönetiminin ve LUSSO DJ’inin kontrolünde sahne alır; sahneye çıkış, süre, akış ve ekipman kullanımı LUSSO’nun talimatına tabidir. LUSSO ses ve ışık sistemi dışında sistem kurulamaz; ekipmana verilen zarar MÜŞTERİ tarafından ödenir. Talimatlara uymayan icracının performansı durdurulur, MÜŞTERİ bu nedenle hak talep edemez.\n5.2 HER SALONUN LUSSO TARAFINDAN BELİRLENMİŞ KENDİ SES (DESİBEL) SINIRI VARDIR; BU SINIR HİÇBİR SURETTE AŞILAMAZ VE LUSSO BUNA İZİN VERMEZ. Sınırı aşan sesi LUSSO DJ’i derhal kısar veya keser; bu nedenle indirim, tazminat veya ek süre talep edilemez. Komşu şikâyeti, kolluk müdahalesi veya idari para cezası doğuran her durumun sonucundan ve cezasından MÜŞTERİ sorumludur.\nMADDE 6 — FOTOĞRAF VE VİDEO\n6.1 Fotoğraf ve video çekimi sözleşme kapsamının tamamen dışındadır; LUSSO’nun bu hizmetle hiçbir ilgisi ve sorumluluğu yoktur, tüm sorumluluk MÜŞTERİ’nin anlaştığı fotoğrafçı/stüdyoya aittir. Dışarıdan çekim ekibinin girişi LUSSO’nun onayına bağlıdır.\n6.2 MÜŞTERİ, sözleşme imzalanırken aksini yazılı bildirmedikçe, organizasyona ait genel mekân çekimlerinin LUSSO tarafından tanıtım amacıyla kullanılmasına izin vermiş sayılır.\nMADDE 7 — İŞLETME KURALLARI VE SORUMLULUKLAR\n7.1 İşletme kesinlikle alkolsüzdür; dışarıdan alkol, yiyecek ve içecek getirilemez. Dışarıdan alkol getirilmesi halinde doğacak taşkınlıklardan ve kesilecek her cezadan MÜŞTERİ sorumludur.\n7.2 Havai fişek, meşale, kuru sıkı veya ateşli silah kullanımı yasaktır; aksi halde kesilecek cezayı MÜŞTERİ öder, failler kolluğa teslim edilir.\n7.3 Süsleme ve dekorasyon LUSSO’nun onayıyla ve anlaşmalı firmalarınca yapılır; duvar, tavan, zemin ve mobilyaya zarar verebilecek uygulamalar (çivi, yapıştırıcı, boya vb.) yasaktır.\n7.4 MÜŞTERİ, kendisinin ve misafirlerinin işletmeye, demirbaşlara, ekipmana ve üçüncü kişilere verdiği her zarardan sorumludur; hasar aynı gece tutanakla tespit edilip tahsil edilir. Kaybolan veya çalınan eşyalardan, otopark ve vale hizmetindeki araçlar ile içindekilerden LUSSO sorumlu değildir; çocukların gözetimi velilerine aittir.\n7.5 Kapalı alanlarda sigara içilmez. Asayişi bozan veya personele ya da misafirlere kötü muamelede bulunan kişileri LUSSO dışarı çıkarabilir; gerekli hallerde organizasyonu sonlandırabilir veya bitişi öne çekebilir, bu halde iade yapılmaz.\nMADDE 8 — SÜRE, PROGRAM VE BİLDİRİM SÜRELERİ\n8.1 Organizasyon, organizasyon bilgileri bölümünde yazılı saatler içinde tamamlanır. Bitiş saatinin aşılması halinde her başlayan saat için tarifedeki süre aşımı bedeli aynı gece tahsil edilir; LUSSO süre uzatımını kabul etmeyebilir.\n8.2 Süreler — organizasyon tarihinden önce: menü değişikliği ve prova en geç 15 gün; kesin kişi sayısı, masa düzeni ve oturma planı en geç 7 gün (yazılı olarak Salon Şefi’ne); dışarıdan sanatçı için yazılı onay en geç 7 gün; slayt, video vb. gösterim materyali en geç 7 gün önce uygun formatta teslim edilir. Süresinde bildirim yapılmazsa sözleşmedeki sayı ve düzen esas alınır, geç talepler kabul edilmez ve doğan aksaklıklardan LUSSO sorumlu değildir.\nMADDE 9 — MÜCBİR SEBEP\n9.1 Doğal afet, salgın, resmi yasak veya kısıtlama, genel elektrik-su kesintisi gibi tarafların kontrolü dışındaki hallerde organizasyon LUSSO’nun uygun göreceği ileri bir tarihe ertelenir ve kapora yeni tarihe aktarılır; LUSSO’dan tazminat talep edilemez.\nMADDE 10 — KİŞİSEL VERİLER, TEBLİGAT VE YETKİ\n10.1 MÜŞTERİ, paylaştığı kişisel verilerin 6698 sayılı KVKK uyarınca yalnızca organizasyon hizmeti, faturalandırma ve yasal yükümlülükler amacıyla işlenmesine muvafakat eder. Taraflar sözleşmedeki adreslerini tebligat adresi olarak kabul eder. Sözleşme; organizasyon bilgileri bölümü, işbu hükümler ve düzenlenen bono ile bir bütündür; tek nüsha LUSSO’da kalır, MÜŞTERİ’ye kopyası verilir.\n10.2 Her türlü uyuşmazlıkta ANKARA Mahkemeleri ve İcra Daireleri yetkilidir. LUSSO’nun ticari defter ve kayıtları, adisyon ve tespit tutanakları HMK gereğince kesin delil niteliğindedir.\nBEYAN: Organizasyon sahibi olarak işbu sözleşmenin tüm sayfalarını okuduğumu, anladığımı, tüm şartları kabul ettiğimi; sözleşmede yazılı olmayan hiçbir sözlü taahhüdün bulunmadığını ve sözleşmede yer alan bakiyeyi organizasyon tarihinden bir hafta önce ödeyeceğimi beyan ederim.",
   senetMetni:'İşbu bono karşılığında LUSSO WEDDING veya emrine, yukarıda yazılı vadede ve ödeme yerinde yalnız {TUTAR} Türk Lirası’nı kayıtsız ve şartsız ödeyeceğim. Bedeli malen ahzolunmuştur. Protestodan muaftır.',
   senetYer:'ANKARA'
 };
+/* Önemli şartlar: kayıtlı değilse sözleşme metnindeki 1.2 ve 1.3 fıkralarından ve ödeme şartından oluşturulur. */
+/* Önceki sürümün başlığı (adres, telefon, vergi dairesi satırı) kayıtlıysa yenisi kullanılır */
+function eskiBaslikMi(b){var l=String(b||'').trim().split(/\n+/);return l.length===3&&/^Ovacık Mah\./.test(l[0])&&/^Tel:/.test(l[1])&&/Vergi Dairesi\s*·\s*\d+$/.test(l[2]);}
+var ODEME_SARTI='Kalan bakiyenin tamamı ({KALAN}), organizasyon tarihinden en geç {GUN} gün önce, yani en geç {SONODEME} tarihinde ödenir. BAKİYESİ ORGANİZASYONDAN {GUN} GÜN ÖNCE ÖDENMEMİŞ ORGANİZASYONUN HAZIRLIĞINA BAŞLANMAZ; bu halde LUSSO başka bir ihbara gerek olmaksızın sözleşmeyi feshetmiş sayılır, kapora ve yapılmış ödemeler iade edilmez.';
+function onemliVarsayilan(metin){
+  var o=[];
+  String(metin||'').split(/\n+/).forEach(function(l){var m=/^1\.[23]\s+(.+)$/.exec(l.trim());if(m)o.push(m[1]);});
+  o.push(ODEME_SARTI);
+  return o;
+}
+function temizUzun(a,n){
+  var o=[];
+  (Array.isArray(a)?a:[]).forEach(function(x){x=String(x==null?'':x).replace(/\s+/g,' ').trim().slice(0,n);if(x)o.push(x);});
+  return o;
+}
+VARSAYILAN.onemli=onemliVarsayilan(VARSAYILAN.sozlesmeMetni);
 var SEANS_SABIT={gunduz:{kod:'G',ic:'i-sun',sira:0},aksam:{kod:'A',ic:'i-moon',sira:1}};
 var AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
 var AY_KISA=['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
@@ -650,8 +674,9 @@ function normalize(raw){
   if(typeof raw.sonOdemeGun==='number'&&raw.sonOdemeGun>=0&&raw.sonOdemeGun<=90)c.sonOdemeGun=Math.round(raw.sonOdemeGun);
   if(typeof raw.dipNot==='string')c.dipNot=raw.dipNot.trim().slice(0,400);
   ['baslangiclar','tatlilar','akisSablonu'].forEach(function(k){if(Array.isArray(raw[k]))c[k]=temizListe(raw[k],c[k]);});
-  if(typeof raw.baslik==='string')c.baslik=raw.baslik.trim().slice(0,500);
+  if(typeof raw.baslik==='string'&&!eskiBaslikMi(raw.baslik))c.baslik=raw.baslik.trim().slice(0,500);
   if(typeof raw.sozlesmeMetni==='string'&&raw.sozlesmeMetni.trim())c.sozlesmeMetni=raw.sozlesmeMetni.trim().slice(0,30000);
+  c.onemli=Array.isArray(raw.onemli)?temizUzun(raw.onemli,700):onemliVarsayilan(c.sozlesmeMetni);
   if(typeof raw.senetMetni==='string'&&raw.senetMetni.trim())c.senetMetni=raw.senetMetni.trim().slice(0,2000);
   if(typeof raw.senetYer==='string'&&raw.senetYer.trim())c.senetYer=raw.senetYer.trim().slice(0,40);
   return c;
@@ -993,9 +1018,17 @@ function renderAyarlar(){
      '<textarea class="ain" id="a-dipnot" data-p="dipNot" maxlength="400">'+esc(d.dipNot)+'</textarea></section>';
 
   h+='<section class="ablok"><h2>Sözleşme başlığı</h2>'+
-     '<p class="fine">Yazdırılan sözleşmenin sağ üstündeki satırlar. Program bilgileri sözleşmenin başına kendiliğinden gelir.</p>'+
-     '<label class="albl" for="a-baslik">Başlık satırları (adres, telefon)</label>'+
+     '<p class="fine">Yazdırılan sözleşmenin sağ üstündeki satırlar. Tamamı büyük harfle yazılan satır kalın basılır. Program bilgileri sözleşmenin başına kendiliğinden gelir.</p>'+
+     '<label class="albl" for="a-baslik">Başlık satırları (ad, adres, telefon)</label>'+
      '<textarea class="ain" id="a-baslik" data-p="baslik" maxlength="500">'+esc(d.baslik)+'</textarea></section>';
+
+  h+='<section class="ablok"><h2>Önemli şartlar</h2>'+
+     '<p class="fine">Sözleşmenin ilk sayfasında, organizasyon bilgilerinin hemen altında çerçeve içinde basılır; yanında müşteri parafı için yer vardır. Metinde {KALAN} yerine kalan bakiye, {SONODEME} yerine son ödeme tarihi, {GUN} yerine gün sayısı yazılır. Kalan bakiyesi olmayan sözleşmede ödeme satırı basılmaz.</p>';
+  d.onemli.forEach(function(x,i){
+    h+='<div class="mbas ust"><textarea class="ain oto" id="a-onemli-'+i+'" data-p="onemli.'+i+'" maxlength="700" aria-label="Önemli şart '+(i+1)+'">'+esc(x)+'</textarea>'+
+       '<button type="button" class="sil" data-del="onemli.'+i+'" aria-label="'+(i+1)+'. önemli şartı kaldır">&times;</button></div>';
+  });
+  h+='<button type="button" class="ekle" data-add="onemli">+ Şart ekle</button></section>';
 
   h+='<section class="ablok"><h2>Sözleşme maddeleri</h2>'+
      '<p class="fine">Sözleşmenin matbu şartları. Her madde ayrı kutudadır: metni düzeltebilir, madde ekleyebilir ya da kaldırabilirsiniz. Metin kutusunda her satır ayrı bir fıkra olarak basılır. Metin uzarsa çıktı 2 sayfada kalsın diye yazı kendiliğinden küçülür.</p>';
@@ -1047,6 +1080,7 @@ function ayarKaydet(){
   if(String(d.sozlesmeMetni||'').length>30000)hata='Sözleşme maddeleri çok uzun (en fazla 30.000 karakter).';
   ['baslangiclar','tatlilar','akisSablonu'].forEach(function(k){d[k]=temizListe(d[k],[]);});
   ['baslik','sozlesmeMetni','senetMetni','senetYer'].forEach(function(k){d[k]=String(d[k]||'').trim();});
+  d.onemli=temizUzun(d.onemli,700);
   if(!d.sozlesmeMetni)hata='Sözleşme maddeleri boş bırakılamaz.';
   if(!d.senetMetni)hata='Senet metni boş bırakılamaz.';
   if(!d.turler.length)hata='En az bir organizasyon türü olmalı.';
@@ -1650,13 +1684,27 @@ function beyanMetni(t){
   var b='';String(t||'').split(/\n+/).forEach(function(l){l=l.trim();if(/^BEYAN\s*:/i.test(l))b=l.replace(/^BEYAN\s*:/i,'').trim();});
   return b;
 }
+/* Önemli şartlar: ilk sayfada çerçeve içinde, müşteri parafıyla. Ödeme satırı ({KALAN}/{SONODEME} geçen) kalan bakiye yoksa basılmaz. */
+function onemliHtml(kalan,vade){
+  var a=[];
+  (cfg.onemli||[]).forEach(function(t){
+    if(/\{KALAN\}|\{SONODEME\}/.test(t)&&kalan!=null&&kalan<=0)return;
+    t=esc(t);
+    if(kalan==null)t=t.replace(/\s*\(\{KALAN\}\)/g,'').replace(/\s*\{KALAN\}/g,'');
+    a.push('<li>'+t.replace(/\{KALAN\}/g,'<b>'+paraTL(kalan)+'</b>').replace(/\{SONODEME\}/g,'<b>'+fmtKisa(vade)+'</b>').replace(/\{GUN\}/g,cfg.sonOdemeGun)+'</li>');
+  });
+  if(!a.length)return '';
+  return '<div class="yonemli"><div class="yonbas"><b class="yb">ÖNEMLİ ŞARTLAR</b><span>Müşteri parafı : ________________</span></div><ol>'+a.join('')+'</ol></div>';
+}
 function yazdirHtml(r){
   var dt=r.detay||{},s=seansOf(r.seans),sal=salonOf(r.salon),no=kayitNo(r.salon,r.tarih,r.seans);
   var kalan=r.bedel!=null?r.bedel-(r.kapora||0):null,vade=sonOdeme(r.tarih);
   var akisVar=Array.isArray(dt.akis)&&dt.akis.some(function(a){return a&&(a.ad||a.saat);});
   function satir(k,v){return v?'<tr><th>'+k+'</th><td>'+v+'</td></tr>':'';}
   function kisi(ad,tel){return [esc(ad||''),esc(tel||'')].filter(Boolean).join(' · ');}
-  var baslik=String(cfg.baslik||'').split(/\n+/).map(function(l){return esc(l.trim());}).filter(Boolean).join('<br>');
+  /* Sağ üst: tamamı büyük harfle yazılan satır (LUSSO WEDDING) kalın basılır */
+  var baslik=String(cfg.baslik||'').split(/\n+/).map(function(l){return l.trim();}).filter(Boolean).map(function(l){
+    return /[A-ZÇĞİÖŞÜ]/.test(l)&&l===l.toLocaleUpperCase('tr')?'<b>'+esc(l)+'</b>':esc(l);}).join('<br>');
   var beyan=beyanMetni(cfg.sozlesmeMetni);
   var h='<div class="yic">'+
     '<header class="yust"><div><div class="ywm">LUSSO WEDDING</div><div class="ybas">'+esc(sal.ad.toLocaleUpperCase('tr'))+' SALONU · ORGANİZASYON SÖZLEŞMESİ</div></div><div class="yadr">'+baslik+'</div></header>'+
@@ -1686,6 +1734,7 @@ function yazdirHtml(r){
       '</table>'+
     '</div></div>'+
     (r.not?'<p class="yozel"><b class="yb">ÖZEL İSTEKLER</b> '+esc(r.not).replace(/\n+/g,' · ')+'</p>':'')+
+    onemliHtml(kalan,vade)+
     '<h3 class="ysart">Sözleşme şartları</h3><div class="ymetin">'+metinParagraf(cfg.sozlesmeMetni)+'</div>'+
     '<div class="yson">'+(beyan?'<p class="beyan"><b>BEYAN:</b> '+esc(beyan)+'</p>':'')+
     '<div class="yimza"><div><b class="yb">ORGANİZASYON SAHİBİ</b><span>Ad Soyad : '+esc(r.musteri)+'</span><span>İmza : ______________________</span></div>'+
